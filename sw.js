@@ -1,5 +1,5 @@
-const staticCacheName = "site-static-v2";
-const dynamicCacheName = "site-dynamic-v1";
+const staticCacheName = "site-static-v4";
+const dynamicCacheName = "site-dynamic-v7";
 const assets = [
   "/",
   "index.html",
@@ -18,7 +18,7 @@ self.addEventListener("install", evt => {
   evt.waitUntil(
     caches.open(staticCacheName).then(cache => {
       // cache.addAll(assets);
-      console.log("assets", assets);
+      // console.log("assets", assets);
       cache.addAll(assets);
     })
   );
@@ -59,7 +59,7 @@ self.addEventListener("fetch", evt => {
       caches
         .match(evt.request)
         .then(cacheres => {
-          console.log(cacheres);
+          // console.log(cacheres);
           return (
             cacheres ||
             fetch(evt.request).then(fetchres => {
